@@ -45,8 +45,7 @@ namespace DataExample
                 Console.WriteLine("Data is saved successfully\n");
             else
                 Console.WriteLine("Error");
-
-            }
+        }
         public void Delete(string str)
         {
             SqlCommand command = new SqlCommand(str, connection);
@@ -56,6 +55,14 @@ namespace DataExample
             else
                 Console.WriteLine("Error");
         }
+        public void Update(string str)
+        {
+            SqlCommand command = new SqlCommand(str, connection);
+            int result = command.ExecuteNonQuery();
+            if (result > 0)
+                Console.WriteLine("Data is updated successfully");
+            else
+                Console.WriteLine("Error in updating");
+        }
     }
-    
 }

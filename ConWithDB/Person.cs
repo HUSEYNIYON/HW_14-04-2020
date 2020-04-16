@@ -42,7 +42,12 @@ namespace DataExample
             sqlConnect.Delete(str);
             sqlConnect.Close();
         }
-
-
+        public void UpdatePerson(int ID,string LastName, string FirstName, string MiddleName, DateTime BirthDate)
+        {
+            string insertSqlCommand = $"Update Person set FirstName='{LastName}',LastName='{FirstName}',MiddleName='{MiddleName}',BirthDate='{BirthDate}' where id={ID}";
+            sqlConnect.Open();
+            sqlConnect.Update(insertSqlCommand);
+            sqlConnect.Close();
+        }
     }
 }
